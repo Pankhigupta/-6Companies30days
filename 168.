@@ -1,0 +1,29 @@
+class Solution {
+    public String convertToTitle(int columnNumber) {
+        
+       String alpha ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+       if(columnNumber < 26){
+        return(Character.toString(alpha.charAt(columnNumber-1)));
+       }
+       else{
+        int  q =columnNumber/26;
+        int  r =columnNumber%26;
+        if(r==0){
+            if (q==1){
+                return Character.toString(alpha.charAt(25));
+            }
+            else{
+                return convertToTitle(q-1) + alpha.charAt(25);
+            }
+        }
+        else{
+            return convertToTitle(q) +alpha.charAt((26+r-1)%26);
+        }
+        
+
+       }
+
+
+
+    }
+}
